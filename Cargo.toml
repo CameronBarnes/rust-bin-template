@@ -28,13 +28,23 @@ rustflags = [
 #"link-arg=-fuse-ld=mold"
 
 # Nightly
-   "-Zshare-generics=y",
-   "-Zthreads=0",
+    "-Zshare-generics=y",
+    "-Zthreads=0",
 ]
 
 [dependencies]
 itertools = "0.13"
 anyhow = "1.0"
+derive_more = {
+    version = "1.0",
+	features = [ # Enable as needed
+		#"display",
+		#"is_variant",
+		#"from", "try_from",
+		#"into", "try_into",
+		#"deref", "deref_mut",
+	]
+}
 # Enable one of the following if this program uses hashmaps
 #rustc-hash = "2.0" # Poor quality but very high integer performance
 #ahash = "0.8" # Should be used most of the time instead of the default HashMap implementation
