@@ -1,0 +1,3 @@
+[placeholders]
+linker = { type = "string", prompt = "What linker to use?", choices = ["Mold", "LLD", "Built-in"], default = "LLD" }
+nightly = { type = "bool", prompt = "Use Nightly build features?", default = false }
