@@ -34,17 +34,25 @@ rustflags = [
 
 [dependencies]
 itertools = "0.13"
+
+#clap = { version = "4.5", features = ["derive"] }
+
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
 anyhow = "1.0"
-derive_more = {
-    version = "1.0",
-	features = [ # Enable as needed
+#thiserror = "1.0" # This should be used with custom error types any time the error needs to contain data that we want to use
+
+#derive_more = { # I find this covers a lot of enum boilerplate
+#    version = "1.0",
+#	features = [ # Enable as needed
 		#"display",
 		#"is_variant",
 		#"from", "try_from",
 		#"into", "try_into",
 		#"deref", "deref_mut",
-	]
-}
+#	]
+#}
 # Enable one of the following if this program uses hashmaps
 #rustc-hash = "2.0" # Poor quality but very high integer performance
 #ahash = "0.8" # Should be used most of the time instead of the default HashMap implementation
