@@ -39,8 +39,10 @@ anyhow = "1.0"
 #	features = [ # Enable as needed
 		#"display",
 		#"is_variant",
-		#"from", "try_from",
-		#"into", "try_into",
+		#"from",
+		#"try_from",
+		#"into",
+		#"try_into",
 		#"deref", "deref_mut",
 #	]
 #}

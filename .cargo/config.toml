@@ -1,12 +1,11 @@
 [target.x86_64-unknown-linux-gnu]
 linker = "clang"
 rustflags = [
-"-C",
 # Improves performance while sacrificing compatibility
-{% if native %}#{% endif %}"target-cpu=native",
+{% if native != true %}#{% endif %}"-Ctarget-cpu=native",
 #Pick one of the two following options, prefer mold if available
-{% if linker != "LLD" %}#{% endif %}"link-arg=-fuse-ld=lld",
-{% if linker != "Mold" %}#{% endif %}"link-arg=-fuse-ld=mold",
+{% if linker != "LLD" %}#{% endif %}"-Clink-arg=-fuse-ld=lld",
+{% if linker != "Mold" %}#{% endif %}"-Clink-arg=-fuse-ld=mold",
 
 # Nightly{% if nightly %}
     "-Zshare-generics=y",
@@ -19,9 +18,8 @@ rustflags = [
 
 [target.x86_64-apple-darwin]
 rustflags = [
-"-C",
 # Improves performance while sacrificing compatibility
-{% if native %}#{% endif %}"target-cpu=native",
+{% if native != true %}#{% endif %}"-Ctarget-cpu=native",
 
 # Nightly{% if nightly %}
     "-Zshare-generics=y",
@@ -32,9 +30,8 @@ rustflags = [
 {% endif %}]
 [target.aarch64-apple-darwin]
 rustflags = [
-"-C",
 # Improves performance while sacrificing compatibility
-{% if native %}#{% endif %}"target-cpu=native",
+{% if native != true %}#{% endif %}"-Ctarget-cpu=native",
 
 # Nightly{% if nightly %}
     "-Zshare-generics=y",
@@ -44,12 +41,12 @@ rustflags = [
     #"-Zthreads=0",
 {% endif %}]
 
+
 [target.x86_64-pc-windows-msvc]
 rustflags = [
-"-C",
 # Improves performance while sacrificing compatibility
-{% if native %}#{% endif %}"target-cpu=native",
-{% if linker != "LLD" %}#{% endif %}"link-arg=-fuse-ld=lld",
+{% if native != true %}#{% endif %}"-Ctarget-cpu=native",
+{% if linker != "LLD" %}#{% endif %}"-Clink-arg=-fuse-ld=lld",
 
 # Nightly{% if nightly %}
     "-Zshare-generics=y",
