@@ -1,3 +1,4 @@
 [placeholders]
 linker = { type = "string", prompt = "What linker to use?", choices = ["Mold", "LLD", "Built-in"], default = "LLD" }
+native = { type = "bool", prompt = "Target Native CPU? Worse compatibility, better performance.", default = false }
 nightly = { type = "bool", prompt = "Use Nightly build features?", default = false }
