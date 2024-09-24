@@ -40,3 +40,6 @@ anyhow = "1.0"
 # Enable one of the following if this program uses hashmaps
 #rustc-hash = "2.0" # Poor quality but very high integer performance
 #ahash = "0.8" # Should be used most of the time instead of the default HashMap implementation
+
+#Enable if this program uses Mutex
+{% if nightly %}#parking_lot = { version = "0.12", features = ["nightly"] }{% else %}#parking_lot = "0.12"{% endif %}
